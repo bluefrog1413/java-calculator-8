@@ -18,7 +18,23 @@ public class Application {
             delimiter = java.util.regex.Pattern.quote(delimiter);
         }
 
-        // 문자열 분리
         String[] tokens = numbers.split(delimiter);
+        int sum = 0;
+
+        for (String num : tokens) {
+            num = num.trim();
+            if (num.isEmpty()) continue;
+
+            if (!num.matches("-?\\d+")) {
+                throw new IllegalArgumentException("잘못된 입력: " + num);
+            }
+
+            int value = Integer.parseInt(num);
+            if (value < 0) {
+                throw new IllegalArgumentException("음수는 허용되지 않습니다: " + value);
+            }
+
+            sum += value;
+        }
     }
 }
