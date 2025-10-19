@@ -36,5 +36,8 @@ public class Application {
 
             sum += value;
         }
+
+        // 결과 출력
+        System.out.println("결과 : " + sum);
     }
 }
