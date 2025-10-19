@@ -11,12 +11,14 @@ public class Application {
         String delimiter = "[,:]";
         String numbers = input;
 
-        // 커스텀 구분자 처리
         if (input.startsWith("//")) {
             int delimiterIndex = input.indexOf("\n");
             delimiter = input.substring(2, delimiterIndex);
             numbers = input.substring(delimiterIndex + 1);
             delimiter = java.util.regex.Pattern.quote(delimiter);
         }
+
+        // 문자열 분리
+        String[] tokens = numbers.split(delimiter);
     }
 }
